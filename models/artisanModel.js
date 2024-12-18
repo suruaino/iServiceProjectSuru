@@ -1,8 +1,7 @@
-const { DataTypes } = require(`sequelize`);
-const sequelize = require("../config/db");
-const { defaultValueSchemable } = require("sequelize/lib/utils");
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
 
-const User = sequelize.define("User", {
+const Artisan = sequelize.define("Artisan", { 
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -13,7 +12,7 @@ const User = sequelize.define("User", {
     allowNull: false,
   },
   email: {
- type: DataTypes.STRING,
+    type: DataTypes.STRING,
     allowNull: true,
     unique: true,
     validate: {
@@ -32,6 +31,14 @@ const User = sequelize.define("User", {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
   },
+  work: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  rate: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
-module.exports = User;
+module.exports = Artisan;
